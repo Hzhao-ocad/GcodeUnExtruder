@@ -30,7 +30,7 @@ jobs:
         pyinstaller --onefile --console --name GcodeUnExtruder Process.py
     
     - name: Upload Windows artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: GcodeUnExtruder-Windows
         path: dist/GcodeUnExtruder.exe
@@ -39,10 +39,10 @@ jobs:
     runs-on: macos-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
@@ -59,7 +59,7 @@ jobs:
         chmod +x dist/GcodeUnExtruder
     
     - name: Upload macOS artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: GcodeUnExtruder-macOS
         path: dist/GcodeUnExtruder
@@ -71,13 +71,13 @@ jobs:
     
     steps:
     - name: Download Windows artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: GcodeUnExtruder-Windows
         path: ./windows
     
     - name: Download macOS artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: GcodeUnExtruder-macOS
         path: ./macos
